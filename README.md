@@ -27,10 +27,13 @@ if [[ ! -f $LOCAL_IMAGE ]]; then
    curl -s $URL > $LOCAL_IMAGE
 fi
 
+VM_STORAGE="local-zfs"
+VM_ID="109"
+FILENAME="latest-nixos-minimal-x86_64-linux.iso"
 if [[ $(qm list | grep -v grep | grep -ci ${VM_ID:-8000}) > 0 ]]; then
   qm stop ${VM_ID:-8000} --skiplock && qm destroy ${VM_ID:-8000} --destroy-unreferenced-disks --purge
 fi
-qm create ${VM_ID:-8000} --name nixos-23.11-template --memory 2048 --cores 4 --cpu cputype=host
+qm create ${VM_ID:-8000} --name nixos-23.11-template --memory 4096 --cores 2 --cpu cputype=host
 qm set ${VM_ID:-8000} --agent 1 --machine q35 --ostype l26 --onboot 1 --scsihw virtio-scsi-pci 
 qm set ${VM_ID:-8000} --net0 virtio,bridge=vmbr0 --ipconfig0 ip=dhcp
 # media=cdrom is SUPER important to boot order, DO NOT remove it or your life will be pain!
