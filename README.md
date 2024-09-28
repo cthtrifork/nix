@@ -54,9 +54,9 @@ nix-shell -p curl
 curl -Ls https://raw.githubusercontent.com/cthtrifork/nix/refs/heads/main/setup.sh > setup && bash setup
 ```
 
-- You will be prompted to provide a password for the default user 'anvil'.
+- You will be prompted to provide a password for the default user 'caspertdk'.
 - Followed by two prompts to set the root password.
-- Nix will then build the system and you will be prompted to reboot. 
+- Nix will then build the system and you will be prompted to reboot.
 
 ### After reboot
 

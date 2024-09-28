@@ -79,9 +79,9 @@ envsubst "${HASHED_PASSWORD}" < configuration.nix > /mnt/etc/nixos/configuration
 nixos-install
 
 # Check if the directory exists
-if [ -d "/mnt/home/anvil" ]; then
-    touch /mnt/home/anvil/.zshrc
-    chown 1000:100 /mnt/home/anvil/.zshrc
+if [ -d "/mnt/home/caspertdk" ]; then
+    touch /mnt/home/caspertdk/.zshrc
+    chown 1000:100 /mnt/home/caspertdk/.zshrc
 fi
 
 while true; do
