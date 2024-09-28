@@ -19,6 +19,7 @@
     };
   };
 
+
   system.autoUpgrade.enable = true;
 
   #nixpkgs.config.allowUnfree = true;
@@ -68,6 +69,8 @@
 
   # Use systemd-boot
   boot.loader.systemd-boot.enable = true;
+  # Limit the number of generations to keep
+  boot.loader.systemd-boot.configurationLimit = 10;
 
   # disable ipv6
   networking.enableIPv6  = false;
