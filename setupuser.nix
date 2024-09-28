@@ -4,7 +4,8 @@
       name = "setupuser";
       runtimeInputs = [ pkgs.ssh-import-id pkgs.openssh ];
       text = ''
-        ssh-import-id gh:ilude
+        ssh-import-id gh:cthtrifork
+        ssh-import-id gh:caspertdk
         touch ~/.zshrc
       '';
     });
@@ -12,7 +13,7 @@
     description = "Import SSH key from GitHub";
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      User = "anvil";
+      User = "casertdk";
       Type = "oneshot";
       ExecStart = "${script}";
     };

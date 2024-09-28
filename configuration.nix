@@ -10,12 +10,17 @@
 
   system.autoUpgrade.enable = true;
 
+	users.mutableUsers = false;
+	users.users.root = {
+		hashedPassword = "*";
+	};
+  
   # Set your time zone.
-  time.timeZone = "America/New_York";
+  time.timeZone = "Europe/Copenhagen";
   #time.timeZone = "America/Los_Angeles";
 
   # Define a user account.
-  users.users.anvil = {
+  users.users.caspertdk = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "systemd-journal" ];
     shell = pkgs.zsh;
@@ -28,7 +33,13 @@
   environment.shells = [ pkgs.zsh ];
 
   programs = { 
-    zsh.enable = true;
+	 	zsh = {
+			enable = true;
+			autosuggestions.enable = true;
+			zsh-autoenv.enable = false;
+			syntaxHighlighting.enable = true;
+	 };
+    # needed for vscode remote ssh
     nix-ld.enable = true; 
   };
 

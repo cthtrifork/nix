@@ -1,4 +1,7 @@
+# NixOS
+
 ## Links
+
 [Awesome Nix](https://github.com/nix-community/awesome-nix)
 
 [Nix Package Search](https://search.nixos.org/packages)
@@ -11,8 +14,8 @@
 
 [NixOS & Flakes Book](https://nixos-and-flakes.thiscute.world/introduction/)
 
-
 ## Create Proxmox VM
+
 copy and paste the following into a proxmox terminal and run it:
 
 ```bash
@@ -38,17 +41,17 @@ qm start ${VM_ID:-8000}
 ```
 
 ## Go to the VM console
+
 Run the following two commands in the VM console (you'll have to type them in, since you can't copy and paste in the console)
+
 ```bash
 # install curl
 
 nix-shell -p curl
 
-# https://t.ly/_c10E redirects to https://raw.githubusercontent.com/ilude/nix/main/setup.sh
 # download file and save as setup
 
-curl -Ls https://t.ly/_c10E > setup && bash setup
-
+curl -Ls https://raw.githubusercontent.com/cthtrifork/nix/refs/heads/main/setup.sh > setup && bash setup
 ```
 
 - You will be prompted to provide a password for the default user 'anvil'.
@@ -56,12 +59,11 @@ curl -Ls https://t.ly/_c10E > setup && bash setup
 - Nix will then build the system and you will be prompted to reboot. 
 
 ### After reboot
-```bash
+
+```sh
 # edit configuration as you like
 sudo nano /etc/nixos/configuration.nix
 
 # apply configuration changes
 sudo nixos-rebuild switch
 ```
-
-
