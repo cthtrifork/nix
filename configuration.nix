@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ./setupuser.nix
     ./auto-update.nix
-  ]
+  ];
 
   nix = {
     gc = {
