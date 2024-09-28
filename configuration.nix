@@ -7,12 +7,14 @@
     ./auto-update.nix
   ];
 
+  systemd.oomd.enable = false;
+
   nix = {
-    #gc = {
-    #  automatic = true;
-    #  dates = "weekly";
-    #  options = "--delete-older-than 7d";
-    #};
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
     settings = {
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
       auto-optimise-store = true;
