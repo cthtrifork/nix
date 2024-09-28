@@ -1,7 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ 
+    ./hardware-configuration.nix
+    ./setupuser.nix
+  ];
 
   nix.settings = {
     auto-optimise-store = true;
@@ -48,6 +51,7 @@
 
   # disable ipv6
   networking.enableIPv6  = false;
+  networking.hostName = "nixos-homeserver";
 
   # Select internationalisation properties.
   # console = {
