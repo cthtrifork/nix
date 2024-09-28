@@ -13,7 +13,7 @@
     description = "Import SSH key from GitHub";
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      User = "casertdk";
+      User = "caspertdk";
       Type = "oneshot";
       ExecStart = "${script}";
     };

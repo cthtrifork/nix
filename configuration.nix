@@ -3,7 +3,7 @@
 {
   imports = [ 
     ./hardware-configuration.nix
-    ./setupuser.nix
+    ./setup-users.nix
     ./auto-update.nix
   ];
 
