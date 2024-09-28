@@ -15,7 +15,7 @@
 
 	users.mutableUsers = false;
 	users.users.root = {
-		hashedPassword = "*";
+		#hashedPassword = "*";
 	};
   
   # Set your time zone.
@@ -27,7 +27,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "systemd-journal" ];
     shell = pkgs.zsh;
-    hashedPassword = "${HASHED_PASSWORD}";
+    #hashedPassword = "${HASHED_PASSWORD}";
     #packages = with pkgs; [];
   };
 
