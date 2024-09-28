@@ -1,8 +1,13 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   systemd.services.setupuser = let
     script = lib.getExe (pkgs.writeShellApplication {
       name = "setupuser";
-      runtimeInputs = [ pkgs.ssh-import-id pkgs.openssh ];
+      runtimeInputs = [pkgs.ssh-import-id pkgs.openssh];
       text = ''
         ssh-import-id gh:cthtrifork
         ssh-import-id gh:caspertdk
@@ -11,7 +16,7 @@
     });
   in {
     description = "Import SSH key from GitHub";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
     serviceConfig = {
       User = "caspertdk";
       Type = "oneshot";
