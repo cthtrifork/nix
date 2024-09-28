@@ -1,0 +1,20 @@
+---
+name: Linting
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: luisnquin/setup-alejandra@main
+      - run: alejandra ./
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Nix formatting"
+          commit_options: --no-verify --signoff
+          skip_dirty_check: false
+          skip_fetch: true
