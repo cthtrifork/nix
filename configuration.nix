@@ -51,7 +51,7 @@
 
   # disable ipv6
   networking.enableIPv6  = false;
-  networking.hostName = "nixos-homeserver";
+  networking.hostName = "nixos";
 
   # Select internationalisation properties.
   # console = {
