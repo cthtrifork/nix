@@ -113,7 +113,15 @@
   ];
 
   #services.cloud-init.enable = true;
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      #X11Forwarding = true;
+      PermitRootLogin = "no"; # disable root login
+      PasswordAuthentication = false; # disable password login
+    };
+    #openFirewall = true;
+  };
   services.qemuGuest.enable = true;
   virtualisation.docker.enable = true;
 
