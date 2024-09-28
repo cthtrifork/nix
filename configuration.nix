@@ -21,7 +21,7 @@
 
   system.autoUpgrade.enable = true;
 
-  nixpkgs.config.allowUnfree = true
+  nixpkgs.config.allowUnfree = true;
 
 	users.mutableUsers = false;
 	users.users.root = {
